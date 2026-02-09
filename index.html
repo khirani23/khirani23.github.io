@@ -1,17 +1,349 @@
-<0DOCTYPE html>
-
-<html>
+<!DOCTYPE html>
+<html lang="id">
 <head>
-  <meta http-equiv="CONTENT-TYPE" content="text/html; charset=UTF-8">
-  <title>Hello, World!</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portofolio | Khirani Tri Hapsari</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
+        
+        body {
+            font-family: 'Quicksand', sans-serif;
+            scroll-behavior: smooth;
+            background-color: #fffafb;
+        }
+
+        .pink-gradient {
+            background: linear-gradient(135deg, #ffc2d1 0%, #ffe5ec 100%);
+        }
+
+        .text-pink-primary {
+            color: #ff8fab;
+        }
+
+        .bg-pink-primary {
+            background-color: #ff8fab;
+        }
+
+        .border-pink-primary {
+            border-color: #ff8fab;
+        }
+
+        .card-shadow {
+            box-shadow: 0 10px 30px -5px rgba(255, 143, 171, 0.2);
+        }
+
+        .nav-link {
+            position: relative;
+            transition: all 0.3s;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background-color: #ff8fab;
+            transition: width 0.3s;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .section-padding {
+            padding: 100px 20px;
+        }
+
+        /* Styling tambahan untuk foto profil agar rapi */
+        .profile-frame {
+            position: relative;
+            z-index: 10;
+        }
+
+        .profile-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 2.5rem;
+        }
+    </style>
 </head>
-<body>
-  <h1>
-    Halo... saya Khirani
-    sedang belajar pemograman Web. 
-    mata pelajaran koding dan kecerdasan
-    Artificial. di kelas XII DKV
-    SMK Al Irsyad Al Islamiyah Haurgeulis
-  </h1>
+<body class="text-gray-700">
+
+    <!-- Navigasi -->
+    <nav class="fixed w-full z-50 bg-white/90 backdrop-blur-md border-b border-pink-100">
+        <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="text-2xl font-bold text-pink-primary tracking-tighter">KTH.</div>
+            
+            <!-- Desktop Menu -->
+            <div class="hidden md:flex space-x-8 font-semibold text-sm uppercase tracking-wider">
+                <a href="#home" class="nav-link">Beranda</a>
+                <a href="#about" class="nav-link">Tentang</a>
+                <a href="#education" class="nav-link">Pendidikan</a>
+                <a href="#skills" class="nav-link">Keahlian</a>
+                <a href="#contact" class="nav-link">Kontak</a>
+            </div>
+
+            <!-- Mobile Toggle -->
+            <button class="md:hidden text-pink-primary" id="mobile-btn">
+                <i class="fas fa-bars text-2xl"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-pink-50 px-6 py-6 space-y-4 shadow-xl">
+            <a href="#home" class="block font-semibold">Beranda</a>
+            <a href="#about" class="block font-semibold">Tentang</a>
+            <a href="#education" class="block font-semibold">Pendidikan</a>
+            <a href="#skills" class="block font-semibold">Keahlian</a>
+            <a href="#contact" class="block font-semibold">Kontak</a>
+        </div>
+    </nav>
+
+    <!-- Hero / Home -->
+    <section id="home" class="min-h-screen flex items-center justify-center pink-gradient relative overflow-hidden">
+        <div class="absolute top-20 left-10 w-32 h-32 bg-white/30 rounded-full blur-3xl"></div>
+        <div class="absolute bottom-20 right-10 w-48 h-48 bg-pink-300/20 rounded-full blur-3xl"></div>
+        
+        <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-12 px-6 z-10">
+            <div class="flex-1 text-center md:text-left">
+                <span class="inline-block px-4 py-1 bg-white text-pink-primary rounded-full text-sm font-bold mb-4 shadow-sm">Selamat Datang</span>
+                <h1 class="text-5xl md:text-7xl font-bold text-gray-800 mb-6 leading-tight">
+                    Khirani Tri <br><span class="text-pink-primary">Hapsari</span>
+                </h1>
+                <p class="text-lg text-gray-600 mb-8 max-w-lg">
+                    Berlokasi di Desa Sumbermulya, Haurgeulis, Indramayu. Saya adalah seorang kreatif yang fokus pada desain visual dan estetika digital.
+                </p>
+                <div class="flex flex-wrap justify-center md:justify-start gap-4">
+                    <a href="https://instagram.com/xkhaiihere" target="_blank" class="bg-pink-primary text-white px-10 py-4 rounded-2xl font-bold hover:scale-105 transition-transform shadow-lg flex items-center gap-2">
+                        <i class="fab fa-instagram"></i> Ikuti Instagram
+                    </a>
+                    <a href="tel:081313189639" class="bg-white text-pink-primary border-2 border-pink-primary px-10 py-4 rounded-2xl font-bold hover:bg-pink-50 transition-colors">Hubungi Kami</a>
+                </div>
+            </div>
+            <div class="flex-1 flex justify-center">
+                <div class="relative group profile-frame">
+                    <div class="absolute -inset-4 bg-pink-200 rounded-[3rem] rotate-6 group-hover:rotate-3 transition-transform"></div>
+                    <div class="relative w-64 h-80 md:w-80 md:h-[450px] bg-white rounded-[2.5rem] overflow-hidden shadow-2xl">
+                        <img src="https://simangu.smksalirsyad-hgl.sch.id/apimangu/uploads/siswa/232410058/1770601814_2c0bb4ca.jpg" 
+                             alt="Foto Profil Khirani Tri Hapsari" 
+                             class="profile-image"
+                             onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                        <div class="hidden absolute inset-0 flex items-center justify-center bg-pink-50">
+                             <i class="fas fa-user text-pink-primary text-8xl opacity-20"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tentang Diri -->
+    <section id="about" class="section-padding bg-white">
+        <div class="max-w-4xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Tentang Saya</h2>
+                <div class="w-20 h-1 bg-pink-primary mx-auto rounded-full"></div>
+            </div>
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="bg-pink-50 p-8 rounded-3xl border-2 border-dashed border-pink-200">
+                    <h3 class="text-2xl font-bold text-pink-primary mb-4 italic">"Kreativitas tanpa batas."</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        Saya adalah pribadi yang ceria, teliti, dan memiliki minat mendalam di dunia desain grafis. Dengan latar belakang pendidikan yang kuat, saya terbiasa menerjemahkan ide abstrak menjadi visual yang menarik dan komunikatif.
+                    </p>
+                </div>
+                <div class="space-y-4">
+                    <p class="text-lg">
+                        Bagi saya, setiap proyek adalah kesempatan untuk memberikan dampak positif melalui visual. Saya percaya bahwa kombinasi antara warna yang tepat dan tata letak yang rapi adalah kunci dari desain yang berkesan.
+                    </p>
+                    <div class="pt-4 border-t border-pink-100 flex gap-6">
+                        <div>
+                            <span class="block text-2xl font-bold text-pink-primary">100%</span>
+                            <span class="text-xs uppercase font-bold text-gray-400 tracking-widest">Dedikasi</span>
+                        </div>
+                        <div>
+                            <span class="block text-2xl font-bold text-pink-primary">Fresh</span>
+                            <span class="text-xs uppercase font-bold text-gray-400 tracking-widest">Ide Kreatif</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pendidikan -->
+    <section id="education" class="section-padding bg-pink-50/50">
+        <div class="max-w-6xl mx-auto px-6">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-16 italic text-pink-primary">Riwayat Pendidikan</h2>
+            
+            <div class="relative space-y-8 before:absolute before:inset-0 before:ml-5 before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:w-0.5 before:bg-gradient-to-b before:from-transparent before:via-pink-200 before:to-transparent">
+                
+                <!-- SD -->
+                <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group">
+                    <div class="flex items-center justify-center w-10 h-10 rounded-full border border-white bg-pink-primary text-white shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2">
+                        <i class="fas fa-school text-xs"></i>
+                    </div>
+                    <div class="w-[calc(100%-4rem)] md:w-[45%] bg-white p-6 rounded-2xl shadow-sm border border-pink-50 card-shadow">
+                        <time class="font-bold text-pink-primary text-sm uppercase">Pendidikan Dasar</time>
+                        <h4 class="text-xl font-bold mt-1">SDN Pulogebang 11</h4>
+                        <p class="text-gray-500 mt-2">Masa awal eksplorasi ilmu pengetahuan umum dan pembentukan karakter dasar.</p>
+                    </div>
+                </div>
+
+                <!-- SMP -->
+                <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group">
+                    <div class="flex items-center justify-center w-10 h-10 rounded-full border border-white bg-pink-primary text-white shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2">
+                        <i class="fas fa-mosque text-xs"></i>
+                    </div>
+                    <div class="w-[calc(100%-4rem)] md:w-[45%] bg-white p-6 rounded-2xl shadow-sm border border-pink-50 card-shadow">
+                        <time class="font-bold text-pink-primary text-sm uppercase">Pendidikan Menengah</time>
+                        <h4 class="text-xl font-bold mt-1">SMP Fimis Boarding School</h4>
+                        <p class="text-gray-500 mt-2">Menempuh pendidikan menengah dengan sistem boarding school yang mengutamakan kedisiplinan dan nilai spiritual.</p>
+                    </div>
+                </div>
+
+                <!-- SMK -->
+                <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group">
+                    <div class="flex items-center justify-center w-10 h-10 rounded-full border border-white bg-pink-primary text-white shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2">
+                        <i class="fas fa-palette text-xs"></i>
+                    </div>
+                    <div class="w-[calc(100%-4rem)] md:w-[45%] bg-white p-6 rounded-2xl shadow-sm border border-pink-50 card-shadow">
+                        <time class="font-bold text-pink-primary text-sm uppercase">Pendidikan Kejuruan</time>
+                        <h4 class="text-xl font-bold mt-1">SMK Al Irsyad Haurgeulis</h4>
+                        <p class="text-gray-500 mt-2">Mengasah keterampilan khusus dan keahlian praktis yang siap untuk dunia profesional.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Keahlian -->
+    <section id="skills" class="section-padding bg-white">
+        <div class="max-w-6xl mx-auto px-6">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-16">Keahlian Utama</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-3xl mx-auto">
+                
+                <div class="space-y-6">
+                    <div>
+                        <div class="flex justify-between mb-2">
+                            <span class="font-bold">Corel Draw</span>
+                            <span class="text-pink-primary font-bold">90%</span>
+                        </div>
+                        <div class="w-full bg-pink-100 h-3 rounded-full overflow-hidden">
+                            <div class="bg-pink-primary h-3 rounded-full" style="width: 90%"></div>
+                        </div>
+                    </div>
+                    <p class="text-sm text-gray-500 italic">Mampu membuat logo, vektor, dan tata letak cetak dengan presisi tinggi.</p>
+                </div>
+
+                <div class="space-y-6">
+                    <div>
+                        <div class="flex justify-between mb-2">
+                            <span class="font-bold">Adobe Photoshop</span>
+                            <span class="text-pink-primary font-bold">85%</span>
+                        </div>
+                        <div class="w-full bg-pink-100 h-3 rounded-full overflow-hidden">
+                            <div class="bg-pink-primary h-3 rounded-full" style="width: 85%"></div>
+                        </div>
+                    </div>
+                    <p class="text-sm text-gray-500 italic">Mahir dalam pengeditan foto, manipulasi visual, dan pembuatan konten digital.</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Kontak -->
+    <section id="contact" class="section-padding bg-pink-50/50">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="bg-white rounded-[3rem] shadow-2xl overflow-hidden flex flex-col md:flex-row">
+                <div class="bg-pink-primary p-12 text-white md:w-1/3 flex flex-col justify-between">
+                    <div>
+                        <h3 class="text-3xl font-bold mb-6 italic">Halo, Mari Berdiskusi!</h3>
+                        <p class="opacity-90 mb-10 text-sm">Punya ide kreatif? Jangan ragu untuk menghubungi saya melalui kontak di bawah ini.</p>
+                        
+                        <div class="space-y-8">
+                            <a href="tel:081313189639" class="flex items-center gap-4 hover:translate-x-2 transition-transform">
+                                <div class="w-10 h-10 bg-white/20 rounded-xl flex items-center justify-center">
+                                    <i class="fas fa-phone"></i>
+                                </div>
+                                <span class="font-semibold">081313189639</span>
+                            </a>
+                            <a href="https://instagram.com/xkhaiihere" target="_blank" class="flex items-center gap-4 hover:translate-x-2 transition-transform">
+                                <div class="w-10 h-10 bg-white/20 rounded-xl flex items-center justify-center">
+                                    <i class="fab fa-instagram"></i>
+                                </div>
+                                <span class="font-semibold">@xkhaiihere</span>
+                            </a>
+                            <div class="flex items-start gap-4">
+                                <div class="w-10 h-10 bg-white/20 rounded-xl flex items-center justify-center shrink-0">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                </div>
+                                <span class="text-sm">Haurgeulis, Indramayu, Jawa Barat, 45264</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="p-12 md:w-2/3">
+                    <form class="space-y-6">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-xs font-bold uppercase text-gray-400 mb-2">Nama Lengkap</label>
+                                <input type="text" class="w-full bg-gray-50 border-0 rounded-2xl px-6 py-4 focus:ring-2 focus:ring-pink-primary outline-none" placeholder="Siapa nama Anda?">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold uppercase text-gray-400 mb-2">Alamat Email</label>
+                                <input type="email" class="w-full bg-gray-50 border-0 rounded-2xl px-6 py-4 focus:ring-2 focus:ring-pink-primary outline-none" placeholder="Email aktif Anda">
+                            </div>
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold uppercase text-gray-400 mb-2">Pesan Singkat</label>
+                            <textarea rows="4" class="w-full bg-gray-50 border-0 rounded-2xl px-6 py-4 focus:ring-2 focus:ring-pink-primary outline-none" placeholder="Tuliskan ide atau pertanyaan Anda di sini..."></textarea>
+                        </div>
+                        <button type="submit" class="bg-pink-primary text-white w-full py-4 rounded-2xl font-bold shadow-lg shadow-pink-200 hover:scale-[1.01] transition-transform">Kirim Pesan Sekarang</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 bg-white text-center">
+        <div class="text-2xl font-bold text-pink-primary mb-4 tracking-tighter">KTH.</div>
+        <p class="text-gray-400 text-sm italic mb-4">"Wujudkan impian visualmu bersama Khirani."</p>
+        <div class="flex justify-center space-x-6 text-gray-400 mb-8">
+            <a href="https://instagram.com/xkhaiihere" target="_blank" class="hover:text-pink-primary transition-all hover:scale-125"><i class="fab fa-instagram text-2xl"></i></a>
+            <a href="#" class="hover:text-pink-primary transition-all hover:scale-125"><i class="fab fa-behance text-2xl"></i></a>
+            <a href="#" class="hover:text-pink-primary transition-all hover:scale-125"><i class="fab fa-dribbble text-2xl"></i></a>
+        </div>
+        <div class="text-gray-300 text-[10px] font-bold uppercase tracking-[0.3em]">
+            &copy; 2024 Khirani Tri Hapsari. Hak Cipta Dilindungi.
+        </div>
+    </footer>
+
+    <script>
+        // Toggle Navigasi Mobile
+        const btn = document.getElementById('mobile-btn');
+        const menu = document.getElementById('mobile-menu');
+
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+        });
+
+        // Tutup menu saat link diklik
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                menu.classList.add('hidden');
+            });
+        });
+    </script>
 </body>
 </html>
+
