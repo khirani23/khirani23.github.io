@@ -3,346 +3,423 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portofolio | Khirani Tri Hapsari</title>
+    <title>Bakso Solo Berkah - Katalog Resmi</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lucide/0.263.0/lucide.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
-        
-        body {
-            font-family: 'Quicksand', sans-serif;
-            scroll-behavior: smooth;
-            background-color: #fffafb;
+        body { font-family: 'Poppins', sans-serif; scroll-behavior: smooth; }
+        .cart-bounce { animation: bounce 0.5s ease-in-out; }
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-5px); }
         }
-
-        .pink-gradient {
-            background: linear-gradient(135deg, #ffc2d1 0%, #ffe5ec 100%);
-        }
-
-        .text-pink-primary {
-            color: #ff8fab;
-        }
-
-        .bg-pink-primary {
-            background-color: #ff8fab;
-        }
-
-        .border-pink-primary {
-            border-color: #ff8fab;
-        }
-
-        .card-shadow {
-            box-shadow: 0 10px 30px -5px rgba(255, 143, 171, 0.2);
-        }
-
-        .nav-link {
-            position: relative;
-            transition: all 0.3s;
-        }
-
-        .nav-link::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: -4px;
-            left: 0;
-            background-color: #ff8fab;
-            transition: width 0.3s;
-        }
-
-        .nav-link:hover::after {
-            width: 100%;
-        }
-
-        .section-padding {
-            padding: 100px 20px;
-        }
-
-        /* Styling tambahan untuk foto profil agar rapi */
-        .profile-frame {
-            position: relative;
-            z-index: 10;
-        }
-
-        .profile-image {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            border-radius: 2.5rem;
-        }
+        .product-card:hover img { transform: scale(1.1); }
+        .custom-scrollbar::-webkit-scrollbar { width: 4px; }
+        .custom-scrollbar::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 10px; }
+        .testimonial-card { transition: all 0.3s ease; }
+        .testimonial-card:hover { transform: translateY(-10px); }
     </style>
 </head>
-<body class="text-gray-700">
+<body class="bg-slate-50 text-slate-800">
 
-    <!-- Navigasi -->
-    <nav class="fixed w-full z-50 bg-white/90 backdrop-blur-md border-b border-pink-100">
-        <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
-            <div class="text-2xl font-bold text-pink-primary tracking-tighter">KTH.</div>
-            
-            <!-- Desktop Menu -->
-            <div class="hidden md:flex space-x-8 font-semibold text-sm uppercase tracking-wider">
-                <a href="#home" class="nav-link">Beranda</a>
-                <a href="#about" class="nav-link">Tentang</a>
-                <a href="#education" class="nav-link">Pendidikan</a>
-                <a href="#skills" class="nav-link">Keahlian</a>
-                <a href="#contact" class="nav-link">Kontak</a>
+    <!-- Header -->
+    <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md shadow-sm border-b border-slate-100">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center space-x-3 cursor-pointer" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
+                <img src="https://simangu.smksalirsyad-hgl.sch.id/apimangu/uploads/siswa/232410058/1773109159_2fe6dbc1.png" 
+                     alt="Logo Bakso Solo Berkah" 
+                     class="h-10 w-auto object-contain">
+                <div>
+                    <h1 class="text-base font-bold leading-none text-red-600">Bakso Solo</h1>
+                    <span class="text-[9px] font-semibold text-slate-500 tracking-[0.2em] uppercase">Berkah Autentik</span>
+                </div>
             </div>
+            
+            <div class="flex items-center space-x-4">
+                <button onclick="toggleCart()" class="relative p-2.5 bg-slate-100 rounded-full hover:bg-red-50 hover:text-red-600 transition-all group">
+                    <i data-lucide="shopping-cart" class="w-5 h-5"></i>
+                    <span id="cart-count" class="absolute -top-1 -right-1 bg-red-600 text-white text-[10px] font-bold rounded-full h-5 w-5 flex items-center justify-center hidden border-2 border-white group-hover:scale-110 transition-transform">0</span>
+                </button>
+            </div>
+        </div>
+    </header>
 
-            <!-- Mobile Toggle -->
-            <button class="md:hidden text-pink-primary" id="mobile-btn">
-                <i class="fas fa-bars text-2xl"></i>
+    <!-- Hero/Banner Section -->
+    <section class="container mx-auto px-4 pt-4">
+        <div class="w-full rounded-[2.5rem] overflow-hidden shadow-2xl border-4 border-white relative group">
+            <img src="https://simangu.smksalirsyad-hgl.sch.id/apimangu/uploads/siswa/232410058/1773109174_739b5070.png" 
+                 alt="Banner Bakso Solo Berkah" 
+                 class="w-full h-full object-cover aspect-[21/9] md:aspect-[3/1] group-hover:scale-[1.02] transition-transform duration-700">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent flex flex-col justify-end p-6 md:p-12">
+                <span class="bg-red-600 text-white text-[10px] font-bold px-3 py-1 rounded-full w-fit mb-2 uppercase tracking-widest">Premium Quality</span>
+                <h2 class="text-white text-2xl md:text-4xl font-black mb-1">Cita Rasa Solo Asli</h2>
+                <p class="text-white/80 text-xs md:text-sm font-light max-w-md">Resep turun temurun dengan daging sapi pilihan.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Catalog Section -->
+    <main class="container mx-auto px-4 py-12">
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4">
+            <div>
+                <span class="text-red-600 font-bold text-xs uppercase tracking-widest mb-2 block">Menu Spesial</span>
+                <h2 class="text-3xl font-black text-slate-900">Katalog Produk</h2>
+            </div>
+            <div class="flex space-x-2">
+                <button class="bg-red-600 text-white px-4 py-2 rounded-full text-xs font-bold">Semua</button>
+                <button class="bg-white text-slate-400 px-4 py-2 rounded-full text-xs font-bold border border-slate-100">Bakso</button>
+                <button class="bg-white text-slate-400 px-4 py-2 rounded-full text-xs font-bold border border-slate-100">Minuman</button>
+            </div>
+        </div>
+
+        <!-- Menu Grid -->
+        <div id="menu-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+            <!-- Items injected by JS -->
+        </div>
+    </main>
+
+    <!-- Testimonial Section -->
+    <section class="bg-slate-100 py-16 mb-24">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <span class="text-red-600 font-bold text-xs uppercase tracking-widest mb-2 block">Suara Pelanggan</span>
+                <h2 class="text-3xl font-black text-slate-900">Apa Kata Mereka?</h2>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="testimonial-card bg-white p-8 rounded-[2rem] shadow-sm border border-slate-200">
+                    <div class="flex text-yellow-400 mb-4">
+                        <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                        <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                        <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                        <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                        <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                    </div>
+                    <p class="text-slate-600 text-sm italic mb-6">"Baksonya bener-bener kerasa dagingnya, bukan cuma tepung. Kuahnya gurih banget, persis kaya makan di Solo langsung!"</p>
+                    <div class="flex items-center space-x-3">
+                        <div class="w-10 h-10 rounded-full bg-red-100 flex items-center justify-center font-bold text-red-600">A</div>
+                        <div>
+                            <h4 class="text-sm font-bold text-slate-900">Andi Saputra</h4>
+                            <p class="text-[10px] text-slate-400">Pelanggan Setia</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Testimonial 2 -->
+                <div class="testimonial-card bg-white p-8 rounded-[2rem] shadow-sm border border-slate-200">
+                    <div class="flex text-yellow-400 mb-4">
+                        <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                        <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                        <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                        <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                        <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                    </div>
+                    <p class="text-slate-600 text-sm italic mb-6">"Mie Ayamnya juara! Porsinya pas, potongan ayamnya gede-gede. Pengirimannya juga cepet dan rapi."</p>
+                    <div class="flex items-center space-x-3">
+                        <div class="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center font-bold text-blue-600">S</div>
+                        <div>
+                            <h4 class="text-sm font-bold text-slate-900">Siti Aminah</h4>
+                            <p class="text-[10px] text-slate-400">Ibu Rumah Tangga</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Testimonial 3 -->
+                <div class="testimonial-card bg-white p-8 rounded-[2rem] shadow-sm border border-slate-200">
+                    <div class="flex text-yellow-400 mb-4">
+                        <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                        <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                        <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                        <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                        <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                    </div>
+                    <p class="text-slate-600 text-sm italic mb-6">"Suka banget sama Bakso Telurnya. Telurnya utuh dan matengnya pas. Rekomen banget buat makan bareng keluarga."</p>
+                    <div class="flex items-center space-x-3">
+                        <div class="w-10 h-10 rounded-full bg-green-100 flex items-center justify-center font-bold text-green-600">B</div>
+                        <div>
+                            <h4 class="text-sm font-bold text-slate-900">Budi Santoso</h4>
+                            <p class="text-[10px] text-slate-400">Food Blogger</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Product Modal -->
+    <div id="product-modal" class="fixed inset-0 z-[70] hidden flex items-center justify-center p-4">
+        <div class="absolute inset-0 bg-slate-900/80 backdrop-blur-sm" onclick="closeModal()"></div>
+        <div class="bg-white w-full max-w-2xl rounded-[2.5rem] overflow-hidden relative shadow-2xl flex flex-col md:flex-row max-h-[90vh]">
+            <button onclick="closeModal()" class="absolute top-4 right-4 z-10 bg-white/80 backdrop-blur p-2 rounded-full shadow-lg hover:bg-red-500 hover:text-white transition-colors">
+                <i data-lucide="x" class="w-5 h-5"></i>
             </button>
-        </div>
-
-        <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-pink-50 px-6 py-6 space-y-4 shadow-xl">
-            <a href="#home" class="block font-semibold">Beranda</a>
-            <a href="#about" class="block font-semibold">Tentang</a>
-            <a href="#education" class="block font-semibold">Pendidikan</a>
-            <a href="#skills" class="block font-semibold">Keahlian</a>
-            <a href="#contact" class="block font-semibold">Kontak</a>
-        </div>
-    </nav>
-
-    <!-- Hero / Home -->
-    <section id="home" class="min-h-screen flex items-center justify-center pink-gradient relative overflow-hidden">
-        <div class="absolute top-20 left-10 w-32 h-32 bg-white/30 rounded-full blur-3xl"></div>
-        <div class="absolute bottom-20 right-10 w-48 h-48 bg-pink-300/20 rounded-full blur-3xl"></div>
-        
-        <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-12 px-6 z-10">
-            <div class="flex-1 text-center md:text-left">
-                <span class="inline-block px-4 py-1 bg-white text-pink-primary rounded-full text-sm font-bold mb-4 shadow-sm">Selamat Datang</span>
-                <h1 class="text-5xl md:text-7xl font-bold text-gray-800 mb-6 leading-tight">
-                    Khirani Tri <br><span class="text-pink-primary">Hapsari</span>
-                </h1>
-                <p class="text-lg text-gray-600 mb-8 max-w-lg">
-                    Berlokasi di Desa Sumbermulya, Haurgeulis, Indramayu. Saya adalah seorang kreatif yang fokus pada desain visual dan estetika digital.
-                </p>
-                <div class="flex flex-wrap justify-center md:justify-start gap-4">
-                    <a href="https://instagram.com/xkhaiihere" target="_blank" class="bg-pink-primary text-white px-10 py-4 rounded-2xl font-bold hover:scale-105 transition-transform shadow-lg flex items-center gap-2">
-                        <i class="fab fa-instagram"></i> Ikuti Instagram
-                    </a>
-                    <a href="tel:081313189639" class="bg-white text-pink-primary border-2 border-pink-primary px-10 py-4 rounded-2xl font-bold hover:bg-pink-50 transition-colors">Hubungi Kami</a>
-                </div>
+            <div class="w-full md:w-1/2 h-64 md:h-auto overflow-hidden">
+                <img id="modal-img" src="" class="w-full h-full object-cover" alt="">
             </div>
-            <div class="flex-1 flex justify-center">
-                <div class="relative group profile-frame">
-                    <div class="absolute -inset-4 bg-pink-200 rounded-[3rem] rotate-6 group-hover:rotate-3 transition-transform"></div>
-                    <div class="relative w-64 h-80 md:w-80 md:h-[450px] bg-white rounded-[2.5rem] overflow-hidden shadow-2xl">
-                        <img src="https://simangu.smksalirsyad-hgl.sch.id/apimangu/uploads/siswa/232410058/1770601814_2c0bb4ca.jpg" 
-                             alt="Foto Profil Khirani Tri Hapsari" 
-                             class="profile-image"
-                             onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                        <div class="hidden absolute inset-0 flex items-center justify-center bg-pink-50">
-                             <i class="fas fa-user text-pink-primary text-8xl opacity-20"></i>
-                        </div>
+            <div class="p-8 md:w-1/2 flex flex-col overflow-y-auto custom-scrollbar">
+                <span id="modal-category" class="text-red-600 font-bold text-[10px] uppercase tracking-widest mb-2">Bakso</span>
+                <h3 id="modal-title" class="text-2xl font-black text-slate-900 mb-2"></h3>
+                <p id="modal-price" class="text-xl font-bold text-slate-900 mb-4"></p>
+                <div class="border-t border-slate-100 pt-4 mb-6">
+                    <p id="modal-desc" class="text-slate-500 text-sm leading-relaxed mb-6"></p>
+                    <div class="flex items-center space-x-2 text-[10px] text-slate-400 font-medium">
+                        <i data-lucide="check-circle-2" class="w-3 h-3 text-green-500"></i>
+                        <span>Higienis</span>
+                        <i data-lucide="check-circle-2" class="w-3 h-3 text-green-500"></i>
+                        <span>Daging Segar</span>
+                        <i data-lucide="check-circle-2" class="w-3 h-3 text-green-500"></i>
+                        <span>Halal</span>
                     </div>
                 </div>
+                <button id="modal-add-btn" class="mt-auto w-full bg-red-600 text-white py-4 rounded-2xl font-black flex items-center justify-center space-x-3 hover:bg-red-700 transition-all active:scale-95 shadow-lg shadow-red-200">
+                    <i data-lucide="shopping-cart" class="w-5 h-5"></i>
+                    <span>Tambah Ke Keranjang</span>
+                </button>
             </div>
         </div>
-    </section>
+    </div>
 
-    <!-- Tentang Diri -->
-    <section id="about" class="section-padding bg-white">
-        <div class="max-w-4xl mx-auto px-6">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-bold mb-4">Tentang Saya</h2>
-                <div class="w-20 h-1 bg-pink-primary mx-auto rounded-full"></div>
+    <!-- Cart Drawer -->
+    <div id="cart-sidebar" class="fixed inset-0 z-[60] transform translate-x-full transition-transform duration-500 ease-in-out">
+        <div class="absolute inset-0 bg-slate-900/60 backdrop-blur-sm" onclick="toggleCart()"></div>
+        <div class="absolute right-0 top-0 h-full w-full max-w-md bg-white shadow-2xl flex flex-col">
+            <div class="p-6 border-b flex justify-between items-center">
+                <h3 class="text-xl font-bold flex items-center space-x-2">
+                    <i data-lucide="shopping-bag" class="text-red-600"></i>
+                    <span>Pesanan Anda</span>
+                </h3>
+                <button onclick="toggleCart()" class="p-2 hover:bg-slate-100 rounded-full transition-colors"><i data-lucide="x"></i></button>
             </div>
-            <div class="grid md:grid-cols-2 gap-12 items-center">
-                <div class="bg-pink-50 p-8 rounded-3xl border-2 border-dashed border-pink-200">
-                    <h3 class="text-2xl font-bold text-pink-primary mb-4 italic">"Kreativitas tanpa batas."</h3>
-                    <p class="text-gray-600 leading-relaxed">
-                        Saya adalah pribadi yang ceria, teliti, dan memiliki minat mendalam di dunia desain grafis. Dengan latar belakang pendidikan yang kuat, saya terbiasa menerjemahkan ide abstrak menjadi visual yang menarik dan komunikatif.
-                    </p>
+            <div id="cart-items" class="flex-grow overflow-y-auto p-6 space-y-4 custom-scrollbar">
+                <!-- Items -->
+            </div>
+            <div class="p-6 bg-slate-50 border-t space-y-4">
+                <div class="flex justify-between items-center">
+                    <span class="text-slate-500 font-medium text-sm">Subtotal</span>
+                    <span id="cart-total" class="text-2xl font-black text-red-600">Rp 0</span>
                 </div>
-                <div class="space-y-4">
-                    <p class="text-lg">
-                        Bagi saya, setiap proyek adalah kesempatan untuk memberikan dampak positif melalui visual. Saya percaya bahwa kombinasi antara warna yang tepat dan tata letak yang rapi adalah kunci dari desain yang berkesan.
-                    </p>
-                    <div class="pt-4 border-t border-pink-100 flex gap-6">
-                        <div>
-                            <span class="block text-2xl font-bold text-pink-primary">100%</span>
-                            <span class="text-xs uppercase font-bold text-gray-400 tracking-widest">Dedikasi</span>
-                        </div>
-                        <div>
-                            <span class="block text-2xl font-bold text-pink-primary">Fresh</span>
-                            <span class="text-xs uppercase font-bold text-gray-400 tracking-widest">Ide Kreatif</span>
-                        </div>
-                    </div>
-                </div>
+                <button onclick="checkout()" class="w-full bg-green-600 text-white py-4 rounded-2xl font-bold text-lg hover:bg-green-700 flex items-center justify-center space-x-3 transition active:scale-95 shadow-lg shadow-green-100">
+                    <i data-lucide="message-circle" class="w-6 h-6 fill-green-600 text-white"></i>
+                    <span>Checkout via WhatsApp</span>
+                </button>
             </div>
         </div>
-    </section>
+    </div>
 
-    <!-- Pendidikan -->
-    <section id="education" class="section-padding bg-pink-50/50">
-        <div class="max-w-6xl mx-auto px-6">
-            <h2 class="text-3xl md:text-4xl font-bold text-center mb-16 italic text-pink-primary">Riwayat Pendidikan</h2>
+    <!-- Footer Information -->
+    <footer class="bg-white border-t border-slate-200 pt-16 pb-12">
+        <div class="container mx-auto px-4 text-center">
+            <img src="https://simangu.smksalirsyad-hgl.sch.id/apimangu/uploads/siswa/232410058/1773109159_2fe6dbc1.png" alt="Logo" class="h-20 mx-auto mb-6 grayscale hover:grayscale-0 transition-all opacity-40 hover:opacity-100">
             
-            <div class="relative space-y-8 before:absolute before:inset-0 before:ml-5 before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:w-0.5 before:bg-gradient-to-b before:from-transparent before:via-pink-200 before:to-transparent">
-                
-                <!-- SD -->
-                <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group">
-                    <div class="flex items-center justify-center w-10 h-10 rounded-full border border-white bg-pink-primary text-white shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2">
-                        <i class="fas fa-school text-xs"></i>
+            <div class="max-w-5xl mx-auto bg-slate-50 rounded-[3rem] p-8 md:p-12 border border-slate-100 shadow-inner grid grid-cols-1 md:grid-cols-3 gap-8 text-left">
+                <!-- Pemilik & Alamat -->
+                <div class="space-y-4">
+                    <div class="space-y-1">
+                        <h4 class="text-xs font-black text-red-600 uppercase tracking-widest">Pemilik</h4>
+                        <p class="text-lg font-bold text-slate-900 leading-tight">Khirani Tri Hapsari</p>
                     </div>
-                    <div class="w-[calc(100%-4rem)] md:w-[45%] bg-white p-6 rounded-2xl shadow-sm border border-pink-50 card-shadow">
-                        <time class="font-bold text-pink-primary text-sm uppercase">Pendidikan Dasar</time>
-                        <h4 class="text-xl font-bold mt-1">SDN Pulogebang 11</h4>
-                        <p class="text-gray-500 mt-2">Masa awal eksplorasi ilmu pengetahuan umum dan pembentukan karakter dasar.</p>
-                    </div>
-                </div>
-
-                <!-- SMP -->
-                <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group">
-                    <div class="flex items-center justify-center w-10 h-10 rounded-full border border-white bg-pink-primary text-white shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2">
-                        <i class="fas fa-mosque text-xs"></i>
-                    </div>
-                    <div class="w-[calc(100%-4rem)] md:w-[45%] bg-white p-6 rounded-2xl shadow-sm border border-pink-50 card-shadow">
-                        <time class="font-bold text-pink-primary text-sm uppercase">Pendidikan Menengah</time>
-                        <h4 class="text-xl font-bold mt-1">SMP Fimis Boarding School</h4>
-                        <p class="text-gray-500 mt-2">Menempuh pendidikan menengah dengan sistem boarding school yang mengutamakan kedisiplinan dan nilai spiritual.</p>
+                    <div class="space-y-1">
+                        <h4 class="text-xs font-black text-red-600 uppercase tracking-widest">Alamat Outlet</h4>
+                        <p class="text-sm font-semibold text-slate-900 leading-relaxed">Jl. Adi Sucipto No. 45, Banjarmasin, Solo</p>
                     </div>
                 </div>
 
-                <!-- SMK -->
-                <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group">
-                    <div class="flex items-center justify-center w-10 h-10 rounded-full border border-white bg-pink-primary text-white shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2">
-                        <i class="fas fa-palette text-xs"></i>
-                    </div>
-                    <div class="w-[calc(100%-4rem)] md:w-[45%] bg-white p-6 rounded-2xl shadow-sm border border-pink-50 card-shadow">
-                        <time class="font-bold text-pink-primary text-sm uppercase">Pendidikan Kejuruan</time>
-                        <h4 class="text-xl font-bold mt-1">SMK Al Irsyad Haurgeulis</h4>
-                        <p class="text-gray-500 mt-2">Mengasah keterampilan khusus dan keahlian praktis yang siap untuk dunia profesional.</p>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <!-- Keahlian -->
-    <section id="skills" class="section-padding bg-white">
-        <div class="max-w-6xl mx-auto px-6">
-            <h2 class="text-3xl md:text-4xl font-bold text-center mb-16">Keahlian Utama</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-3xl mx-auto">
-                
-                <div class="space-y-6">
-                    <div>
-                        <div class="flex justify-between mb-2">
-                            <span class="font-bold">Corel Draw</span>
-                            <span class="text-pink-primary font-bold">90%</span>
+                <!-- Kontak Utama -->
+                <div class="space-y-4">
+                    <h4 class="text-xs font-black text-red-600 uppercase tracking-widest">Kontak Resmi</h4>
+                    <div class="space-y-3">
+                        <div class="flex items-center space-x-3 bg-white px-4 py-2 rounded-xl border border-slate-100 shadow-sm">
+                            <i data-lucide="phone" class="w-4 h-4 text-green-500 fill-green-500"></i>
+                            <span class="text-sm font-bold text-slate-900">081234567890</span>
                         </div>
-                        <div class="w-full bg-pink-100 h-3 rounded-full overflow-hidden">
-                            <div class="bg-pink-primary h-3 rounded-full" style="width: 90%"></div>
-                        </div>
-                    </div>
-                    <p class="text-sm text-gray-500 italic">Mampu membuat logo, vektor, dan tata letak cetak dengan presisi tinggi.</p>
-                </div>
-
-                <div class="space-y-6">
-                    <div>
-                        <div class="flex justify-between mb-2">
-                            <span class="font-bold">Adobe Photoshop</span>
-                            <span class="text-pink-primary font-bold">85%</span>
-                        </div>
-                        <div class="w-full bg-pink-100 h-3 rounded-full overflow-hidden">
-                            <div class="bg-pink-primary h-3 rounded-full" style="width: 85%"></div>
-                        </div>
-                    </div>
-                    <p class="text-sm text-gray-500 italic">Mahir dalam pengeditan foto, manipulasi visual, dan pembuatan konten digital.</p>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <!-- Kontak -->
-    <section id="contact" class="section-padding bg-pink-50/50">
-        <div class="max-w-6xl mx-auto px-6">
-            <div class="bg-white rounded-[3rem] shadow-2xl overflow-hidden flex flex-col md:flex-row">
-                <div class="bg-pink-primary p-12 text-white md:w-1/3 flex flex-col justify-between">
-                    <div>
-                        <h3 class="text-3xl font-bold mb-6 italic">Halo, Mari Berdiskusi!</h3>
-                        <p class="opacity-90 mb-10 text-sm">Punya ide kreatif? Jangan ragu untuk menghubungi saya melalui kontak di bawah ini.</p>
-                        
-                        <div class="space-y-8">
-                            <a href="tel:081313189639" class="flex items-center gap-4 hover:translate-x-2 transition-transform">
-                                <div class="w-10 h-10 bg-white/20 rounded-xl flex items-center justify-center">
-                                    <i class="fas fa-phone"></i>
-                                </div>
-                                <span class="font-semibold">081313189639</span>
-                            </a>
-                            <a href="https://instagram.com/xkhaiihere" target="_blank" class="flex items-center gap-4 hover:translate-x-2 transition-transform">
-                                <div class="w-10 h-10 bg-white/20 rounded-xl flex items-center justify-center">
-                                    <i class="fab fa-instagram"></i>
-                                </div>
-                                <span class="font-semibold">@xkhaiihere</span>
-                            </a>
-                            <div class="flex items-start gap-4">
-                                <div class="w-10 h-10 bg-white/20 rounded-xl flex items-center justify-center shrink-0">
-                                    <i class="fas fa-map-marker-alt"></i>
-                                </div>
-                                <span class="text-sm">Haurgeulis, Indramayu, Jawa Barat, 45264</span>
-                            </div>
+                        <div class="flex items-center space-x-3 bg-white px-4 py-2 rounded-xl border border-slate-100 shadow-sm">
+                            <i data-lucide="mail" class="w-4 h-4 text-red-500"></i>
+                            <span class="text-sm font-semibold text-slate-700">BaksoSolo@gmail.com</span>
                         </div>
                     </div>
                 </div>
-                
-                <div class="p-12 md:w-2/3">
-                    <form class="space-y-6">
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                            <div>
-                                <label class="block text-xs font-bold uppercase text-gray-400 mb-2">Nama Lengkap</label>
-                                <input type="text" class="w-full bg-gray-50 border-0 rounded-2xl px-6 py-4 focus:ring-2 focus:ring-pink-primary outline-none" placeholder="Siapa nama Anda?">
-                            </div>
-                            <div>
-                                <label class="block text-xs font-bold uppercase text-gray-400 mb-2">Alamat Email</label>
-                                <input type="email" class="w-full bg-gray-50 border-0 rounded-2xl px-6 py-4 focus:ring-2 focus:ring-pink-primary outline-none" placeholder="Email aktif Anda">
-                            </div>
-                        </div>
-                        <div>
-                            <label class="block text-xs font-bold uppercase text-gray-400 mb-2">Pesan Singkat</label>
-                            <textarea rows="4" class="w-full bg-gray-50 border-0 rounded-2xl px-6 py-4 focus:ring-2 focus:ring-pink-primary outline-none" placeholder="Tuliskan ide atau pertanyaan Anda di sini..."></textarea>
-                        </div>
-                        <button type="submit" class="bg-pink-primary text-white w-full py-4 rounded-2xl font-bold shadow-lg shadow-pink-200 hover:scale-[1.01] transition-transform">Kirim Pesan Sekarang</button>
-                    </form>
+
+                <!-- Media Sosial & Jam -->
+                <div class="space-y-4">
+                    <h4 class="text-xs font-black text-red-600 uppercase tracking-widest">Media Sosial</h4>
+                    <div class="flex items-center space-x-3 bg-white px-4 py-2 rounded-xl border border-slate-100 shadow-sm mb-4">
+                        <i data-lucide="instagram" class="w-4 h-4 text-pink-600"></i>
+                        <span class="text-sm font-bold text-slate-900">@bakso_solo</span>
+                    </div>
+                    <div class="pt-2 border-t border-slate-200">
+                        <p class="text-[10px] text-slate-400 italic font-medium tracking-tight">Jam Operasional:</p>
+                        <p class="text-xs font-black text-slate-700">10:00 - 21:00 WIB</p>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
 
-    <!-- Footer -->
-    <footer class="py-12 bg-white text-center">
-        <div class="text-2xl font-bold text-pink-primary mb-4 tracking-tighter">KTH.</div>
-        <p class="text-gray-400 text-sm italic mb-4">"Wujudkan impian visualmu bersama Khirani."</p>
-        <div class="flex justify-center space-x-6 text-gray-400 mb-8">
-            <a href="https://instagram.com/xkhaiihere" target="_blank" class="hover:text-pink-primary transition-all hover:scale-125"><i class="fab fa-instagram text-2xl"></i></a>
-            <a href="#" class="hover:text-pink-primary transition-all hover:scale-125"><i class="fab fa-behance text-2xl"></i></a>
-            <a href="#" class="hover:text-pink-primary transition-all hover:scale-125"><i class="fab fa-dribbble text-2xl"></i></a>
-        </div>
-        <div class="text-gray-300 text-[10px] font-bold uppercase tracking-[0.3em]">
-            &copy; 2024 Khirani Tri Hapsari. Hak Cipta Dilindungi.
+            <div class="mt-12 text-[10px] text-slate-400 font-bold uppercase tracking-[0.4em]">
+                &copy; 2024 Bakso Solo Berkah - Official Digital Catalog
+            </div>
         </div>
     </footer>
 
     <script>
-        // Toggle Navigasi Mobile
-        const btn = document.getElementById('mobile-btn');
-        const menu = document.getElementById('mobile-menu');
+        const products = [
+            {
+                id: 1,
+                name: "Bakso Solo",
+                price: 35000,
+                desc: "Bakso jumbo spesial dengan isian telur dan daging cincang premium. Menggunakan bumbu rahasia Solo.",
+                category: "Bakso",
+                img: "https://simangu.smksalirsyad-hgl.sch.id/apimangu/uploads/siswa/232410058/1773114004_e78f1c2c.jpg"
+            },
+            {
+                id: 2,
+                name: "Bakso Solo Samrat",
+                price: 25000,
+                desc: "Perpaduan bakso halus dan bakso urat dengan kuah kaldu sapi yang kental dan sangat gurih.",
+                category: "Bakso",
+                img: "https://simangu.smksalirsyad-hgl.sch.id/apimangu/uploads/siswa/232410058/1773114018_d470c6c8.jpg"
+            },
+            {
+                id: 4,
+                name: "Bakso Telur",
+                price: 20000,
+                desc: "Bakso berukuran besar dengan kejutan telur ayam utuh di dalamnya. Favorit semua kalangan!",
+                category: "Bakso",
+                img: "https://simangu.smksalirsyad-hgl.sch.id/apimangu/uploads/siswa/232410058/1773115531_786e558e.jpg"
+            },
+            {
+                id: 7,
+                name: "Mie Ayam",
+                price: 15000,
+                desc: "Mie kuning kenyal dengan topping potongan daging ayam bumbu kecap manis gurih serta sayuran segar.",
+                category: "Mie",
+                img: "https://simangu.smksalirsyad-hgl.sch.id/apimangu/uploads/siswa/232410058/1773115539_99d81e02.jpg"
+            },
+            {
+                id: 6,
+                name: "Es Teh Manis",
+                price: 5000,
+                desc: "Teh melati pilihan yang diseduh sempurna dengan gula murni. Sangat menyegarkan!",
+                category: "Minuman",
+                img: "https://images.unsplash.com/photo-1556679343-c7306c1976bc?w=500&auto=format&fit=crop"
+            }
+        ];
 
-        btn.addEventListener('click', () => {
-            menu.classList.toggle('hidden');
-        });
+        let cart = [];
 
-        // Tutup menu saat link diklik
-        document.querySelectorAll('#mobile-menu a').forEach(link => {
-            link.addEventListener('click', () => {
-                menu.classList.add('hidden');
-            });
-        });
+        function renderMenu() {
+            const grid = document.getElementById('menu-grid');
+            grid.innerHTML = products.map(p => `
+                <div class="product-card group bg-white rounded-[2.5rem] overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-500 border border-slate-100 flex flex-col h-full cursor-pointer" onclick="openModal(${p.id})">
+                    <div class="h-64 overflow-hidden relative">
+                        <img src="${p.img}" class="w-full h-full object-cover transition-transform duration-700" alt="${p.name}">
+                        <div class="absolute top-4 left-4 bg-white/90 backdrop-blur px-3 py-1 rounded-full text-[9px] font-black uppercase tracking-widest text-red-600 shadow-sm">
+                            ${p.category}
+                        </div>
+                        <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                            <span class="bg-white text-slate-900 px-6 py-2 rounded-full font-bold text-xs shadow-xl">Lihat Detail</span>
+                        </div>
+                    </div>
+                    <div class="p-8 flex flex-col flex-grow">
+                        <h3 class="text-xl font-bold text-slate-900 mb-1 leading-tight">${p.name}</h3>
+                        <p class="text-red-600 font-black text-lg mb-4">Rp ${p.price.toLocaleString()}</p>
+                        <button onclick="event.stopPropagation(); addToCart(${p.id})" class="mt-auto w-full bg-slate-900 text-white py-4 rounded-2xl font-black text-xs flex items-center justify-center space-x-2 hover:bg-red-600 transition-all active:scale-95">
+                            <i data-lucide="plus" class="w-4 h-4"></i>
+                            <span>Tambah</span>
+                        </button>
+                    </div>
+                </div>
+            `).join('');
+            lucide.createIcons();
+        }
+
+        function openModal(id) {
+            const p = products.find(x => x.id === id);
+            document.getElementById('modal-img').src = p.img;
+            document.getElementById('modal-title').innerText = p.name;
+            document.getElementById('modal-desc').innerText = p.desc;
+            document.getElementById('modal-price').innerText = `Rp ${p.price.toLocaleString()}`;
+            document.getElementById('modal-category').innerText = p.category;
+            document.getElementById('modal-add-btn').onclick = () => { addToCart(p.id); closeModal(); };
+            document.getElementById('product-modal').classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+            lucide.createIcons();
+        }
+
+        function closeModal() {
+            document.getElementById('product-modal').classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        }
+
+        function toggleCart() {
+            document.getElementById('cart-sidebar').classList.toggle('translate-x-full');
+        }
+
+        function addToCart(id) {
+            const product = products.find(p => p.id === id);
+            const exists = cart.find(item => item.id === id);
+            if (exists) { exists.qty++; } else { cart.push({...product, qty: 1}); }
+            updateUI();
+            
+            const countEl = document.getElementById('cart-count');
+            countEl.classList.remove('hidden');
+            countEl.classList.add('cart-bounce');
+            setTimeout(() => countEl.classList.remove('cart-bounce'), 500);
+        }
+
+        function changeQty(id, delta) {
+            const item = cart.find(i => i.id === id);
+            if (item) {
+                item.qty += delta;
+                if (item.qty <= 0) cart = cart.filter(i => i.id !== id);
+                updateUI();
+            }
+        }
+
+        function updateUI() {
+            const list = document.getElementById('cart-items');
+            const totalEl = document.getElementById('cart-total');
+            const countEl = document.getElementById('cart-count');
+
+            if (cart.length === 0) {
+                list.innerHTML = `
+                    <div class="flex flex-col items-center justify-center h-full opacity-30 py-12">
+                        <i data-lucide="shopping-basket" class="w-16 h-16 mb-4"></i>
+                        <p class="text-sm font-bold">Keranjang Kosong</p>
+                    </div>
+                `;
+                countEl.classList.add('hidden');
+            } else {
+                countEl.classList.remove('hidden');
+                list.innerHTML = cart.map(item => `
+                    <div class="flex items-center space-x-4 bg-slate-50 p-4 rounded-3xl border border-slate-100 group">
+                        <img src="${item.img}" class="w-16 h-16 rounded-2xl object-cover shadow-sm">
+                        <div class="flex-grow">
+                            <h4 class="font-bold text-sm text-slate-900">${item.name}</h4>
+                            <p class="text-red-600 font-bold text-xs">Rp ${(item.price * item.qty).toLocaleString()}</p>
+                        </div>
+                        <div class="flex items-center space-x-2 bg-white rounded-full border p-1">
+                            <button onclick="changeQty(${item.id}, -1)" class="w-8 h-8 rounded-full hover:bg-slate-100 flex items-center justify-center text-slate-400"><i data-lucide="minus" class="w-3 h-3"></i></button>
+                            <span class="text-xs font-black w-4 text-center">${item.qty}</span>
+                            <button onclick="changeQty(${item.id}, 1)" class="w-8 h-8 rounded-full hover:bg-slate-100 flex items-center justify-center text-slate-900"><i data-lucide="plus" class="w-3 h-3"></i></button>
+                        </div>
+                    </div>
+                `).join('');
+            }
+            const total = cart.reduce((sum, item) => sum + (item.price * item.qty), 0);
+            totalEl.innerText = `Rp ${total.toLocaleString()}`;
+            countEl.innerText = cart.reduce((sum, item) => sum + item.qty, 0);
+            lucide.createIcons();
+        }
+
+        function checkout() {
+            if (cart.length === 0) return;
+            let msg = "*PESANAN KATALOG BAKSO SOLO BERKAH*\n---\n";
+            cart.forEach(i => { msg += `✅ ${i.name} (x${i.qty}) - Rp ${(i.price * i.qty).toLocaleString()}\n`; });
+            const total = cart.reduce((sum, item) => sum + (item.price * item.qty), 0);
+            msg += `---\n*TOTAL PEMBAYARAN: Rp ${total.toLocaleString()}*\n\n*Informasi Pengiriman:*\n📍 Alamat: [Tuliskan Alamat Lengkap]\n👤 Nama: [Nama Anda]\n\n*Kontak Outlet Resmi:*\n🏠 Jl. Adi Sucipto No. 45, Solo\n📸 Instagram: @bakso_solo\n📧 Email: BaksoSolo@gmail.com\n👤 Pemilik: Khirani Tri Hapsari`;
+            
+            window.open(`https://wa.me/6281234567890?text=${encodeURIComponent(msg)}`);
+        }
+
+        window.onload = renderMenu;
     </script>
 </body>
 </html>
