@@ -1,54 +1,245 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Daftar Nama Peserta Didik</title>
+    <title>Portofolio | Khirani Tri Hapsari</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700&display=swap');
+        
         body {
-            font-family: Arial, sans-serif;
-            background-color: #f2f2f2;
+            font-family: 'Plus+Jakarta+Sans', sans-serif;
+            scroll-behavior: smooth;
         }
-        .container {
-            max-width: 500px;
-            margin: 40px auto;
-            padding: 20px;
-            background-color: #fff;
-            border: 1px solid #ddd;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+
+        .bg-soft-pink { background-color: #fff0f3; }
+        .text-pink-primary { color: #ff4d6d; }
+        .bg-pink-primary { background-color: #ff4d6d; }
+        
+        .profile-frame {
+            position: relative;
         }
-        h1 {
-            text-align: center;
-            margin-bottom: 20px;
+        .profile-frame::after {
+            content: '';
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            right: -15px;
+            bottom: -15px;
+            border: 3px solid #ffb3c1;
+            border-radius: 1.5rem;
+            z-index: -1;
         }
-        ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
+
+        .nav-link {
+            position: relative;
+            transition: color 0.3s;
         }
-        li {
-            padding: 10px;
-            border-bottom: 1px solid #ccc;
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -2px;
+            left: 0;
+            background-color: #ff4d6d;
+            transition: width 0.3s;
         }
-        li:last-child {
-            border-bottom: none;
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        .nav-link:hover {
+            color: #ff4d6d;
         }
     </style>
 </head>
-<body>
-    <div class="container">
-        <h1>Daftar Nama Peserta Didik</h1>
-        <ul>
-            <li>1. Aris</li>
-            <li>2. Irgin</li>
-            <li>3. Haidar</li>
-            <li>4. Nisa</li>
-            <li>5. Khirani</li>
-            <li>6. Kadmiri</li>
-            <li>7. Vica</li>
-            <li>8. Dahlia</li>
-        </ul>
-    </div>
+<body class="bg-white text-gray-800">
+
+    <!-- Navbar -->
+    <nav class="fixed w-full z-50 bg-white/90 backdrop-blur-md border-b border-pink-100">
+        <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+            <h1 class="text-xl font-bold text-pink-primary tracking-tight">KHIRANI.</h1>
+            <div class="hidden md:flex space-x-8 font-semibold text-sm uppercase tracking-wider">
+                <a href="#home" class="nav-link">Home</a>
+                <a href="#about" class="nav-link">Tentang</a>
+                <a href="#education" class="nav-link">Pendidikan</a>
+                <a href="#skills" class="nav-link">Keahlian</a>
+                <a href="#contact" class="nav-link">Kontak</a>
+            </div>
+            <a href="https://wa.me/6281313189639" class="hidden md:block bg-pink-primary text-white px-5 py-2 rounded-full text-sm font-bold hover:opacity-90 transition-all shadow-lg shadow-pink-200">
+                Hubungi Saya
+            </a>
+            <button class="md:hidden text-pink-primary" onclick="toggleMenu()">
+                <i class="fas fa-bars text-2xl"></i>
+            </button>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-b border-pink-100 px-6 py-4 space-y-4">
+            <a href="#home" class="block font-semibold" onclick="toggleMenu()">Home</a>
+            <a href="#about" class="block font-semibold" onclick="toggleMenu()">Tentang</a>
+            <a href="#education" class="block font-semibold" onclick="toggleMenu()">Pendidikan</a>
+            <a href="#skills" class="block font-semibold" onclick="toggleMenu()">Keahlian</a>
+            <a href="#contact" class="block font-semibold" onclick="toggleMenu()">Kontak</a>
+        </div>
+    </nav>
+
+    <!-- Home Section -->
+    <section id="home" class="pt-32 pb-20 px-6 min-h-screen flex items-center bg-soft-pink">
+        <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+            <div class="order-2 md:order-1">
+                <p class="text-pink-primary font-bold mb-3 uppercase tracking-widest text-sm">Digital Designer & Enthusiast</p>
+                <h1 class="text-5xl md:text-7xl font-bold text-gray-900 mb-6 leading-tight">
+                    Khirani Tri <span class="text-pink-primary">Hapsari</span>
+                </h1>
+                <p class="text-lg text-gray-600 mb-8 leading-relaxed">
+                    Berdiam di <span class="font-semibold text-gray-800 underline decoration-pink-300">Desa Sumbermulya, Haurgeulis, Kab. Indramayu, Jawa Barat</span>. Saya adalah seorang kreatif yang fokus pada estetika desain visual.
+                </p>
+                <div class="flex gap-4">
+                    <a href="#about" class="bg-pink-primary text-white px-8 py-4 rounded-2xl font-bold shadow-xl shadow-pink-200 hover:-translate-y-1 transition-all">Pelajari Saya</a>
+                    <a href="tel:081313189639" class="bg-white text-pink-primary border-2 border-pink-200 px-8 py-4 rounded-2xl font-bold hover:bg-pink-50 transition-all flex items-center gap-2">
+                        <i class="fas fa-phone"></i> Panggil
+                    </a>
+                </div>
+            </div>
+            <div class="order-1 md:order-2 flex justify-center">
+                <div class="profile-frame">
+                    <div class="w-64 h-80 md:w-80 md:h-[450px] bg-white rounded-3xl overflow-hidden shadow-2xl border-8 border-white">
+                        <img src="https://simangu.smksalirsyad-hgl.sch.id/apimangu/uploads/siswa/232410058/1770601814_2c0bb4ca.jpg" alt="Khirani Tri Hapsari" class="w-full h-full object-cover">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-24 px-6 bg-white">
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 class="text-3xl font-bold mb-4">Tentang Diri Saya</h2>
+            <div class="w-16 h-1 bg-pink-primary mx-auto mb-10 rounded-full"></div>
+            <div class="bg-soft-pink p-8 md:p-12 rounded-[2.5rem] shadow-sm relative overflow-hidden">
+                <i class="fas fa-quote-left absolute top-8 left-8 text-pink-200 text-6xl opacity-50"></i>
+                <p class="text-gray-700 text-lg md:text-xl leading-loose italic relative z-10">
+                    "Saya adalah seorang individu yang memiliki ketertarikan mendalam pada dunia desain dan kreativitas. Dengan pengalaman pendidikan di lingkungan boarding school dan kejuruan, saya terlatih untuk disiplin, teliti, dan selalu ingin belajar hal baru. Keinginan terbesar saya adalah menyalurkan ide-ide kreatif melalui alat digital seperti Corel Draw dan Photoshop untuk menciptakan karya yang bermakna."
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education" class="py-24 px-6 bg-soft-pink">
+        <div class="max-w-5xl mx-auto">
+            <h2 class="text-3xl font-bold text-center mb-16">Riwayat Pendidikan</h2>
+            <div class="space-y-8 relative before:absolute before:inset-0 before:ml-5 before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:w-0.5 before:bg-pink-200">
+                
+                <!-- SD -->
+                <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group">
+                    <div class="flex items-center justify-center w-10 h-10 rounded-full border border-white bg-pink-primary text-white shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2">
+                        <i class="fas fa-graduation-cap text-xs"></i>
+                    </div>
+                    <div class="w-[calc(100%-4rem)] md:w-[45%] p-6 rounded-2xl bg-white shadow-sm border border-pink-50">
+                        <time class="font-bold text-pink-primary text-sm">Sekolah Dasar</time>
+                        <h4 class="text-xl font-bold mt-1">SDN Pulogebang 11</h4>
+                    </div>
+                </div>
+
+                <!-- SMP -->
+                <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group">
+                    <div class="flex items-center justify-center w-10 h-10 rounded-full border border-white bg-pink-primary text-white shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2">
+                        <i class="fas fa-school text-xs"></i>
+                    </div>
+                    <div class="w-[calc(100%-4rem)] md:w-[45%] p-6 rounded-2xl bg-white shadow-sm border border-pink-50">
+                        <time class="font-bold text-pink-primary text-sm">Sekolah Menengah Pertama</time>
+                        <h4 class="text-xl font-bold mt-1">SMP FIMIS Boarding School</h4>
+                    </div>
+                </div>
+
+                <!-- SMK -->
+                <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group">
+                    <div class="flex items-center justify-center w-10 h-10 rounded-full border border-white bg-pink-primary text-white shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2">
+                        <i class="fas fa-briefcase text-xs"></i>
+                    </div>
+                    <div class="w-[calc(100%-4rem)] md:w-[45%] p-6 rounded-2xl bg-white shadow-sm border border-pink-50">
+                        <time class="font-bold text-pink-primary text-sm">Sekolah Menengah Kejuruan</time>
+                        <h4 class="text-xl font-bold mt-1">SMK Al Irsyad Haurgeulis</h4>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-24 px-6 bg-white">
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 class="text-3xl font-bold mb-12">Keahlian Utama</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="p-8 rounded-3xl border-2 border-pink-50 bg-white hover:border-pink-300 transition-all group shadow-sm">
+                    <div class="w-16 h-16 bg-soft-pink rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:bg-pink-primary group-hover:text-white transition-all text-pink-primary">
+                        <i class="fas fa-vector-square text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Corel Draw</h3>
+                    <p class="text-gray-500 text-sm">Mahir dalam pembuatan logo, desain layout, dan ilustrasi vektor untuk kebutuhan cetak.</p>
+                </div>
+                <div class="p-8 rounded-3xl border-2 border-pink-50 bg-white hover:border-pink-300 transition-all group shadow-sm">
+                    <div class="w-16 h-16 bg-soft-pink rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:bg-pink-primary group-hover:text-white transition-all text-pink-primary">
+                        <i class="fas fa-image text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Adobe Photoshop</h3>
+                    <p class="text-gray-500 text-sm">Berpengalaman dalam pengolahan foto, digital imaging, dan manipulasi visual yang estetik.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-24 px-6 bg-pink-900 text-white">
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 class="text-4xl font-bold mb-6 italic">Hubungi Khirani</h2>
+            <p class="text-pink-200 mb-12 max-w-lg mx-auto leading-relaxed">Punya pertanyaan atau ingin bekerja sama? Jangan ragu untuk menghubungi saya melalui saluran di bawah ini.</p>
+            
+            <div class="grid md:grid-cols-2 gap-8 mb-16">
+                <!-- WhatsApp -->
+                <a href="https://wa.me/6281313189639" target="_blank" class="flex flex-col items-center p-8 bg-pink-800/50 rounded-3xl hover:bg-pink-800 transition-all hover:scale-105 border border-pink-700/50">
+                    <i class="fab fa-whatsapp text-4xl mb-4 text-green-400"></i>
+                    <span class="font-bold text-xl">WhatsApp</span>
+                    <span class="text-pink-300">0813-1318-9639</span>
+                </a>
+                <!-- Instagram -->
+                <a href="https://www.instagram.com/xkhaiihere" target="_blank" class="flex flex-col items-center p-8 bg-pink-800/50 rounded-3xl hover:bg-pink-800 transition-all hover:scale-105 border border-pink-700/50">
+                    <i class="fab fa-instagram text-4xl mb-4 text-pink-400"></i>
+                    <span class="font-bold text-xl">Instagram</span>
+                    <span class="text-pink-300">@xkhaiihere</span>
+                </a>
+            </div>
+
+            <div class="bg-pink-800/30 p-8 rounded-3xl border border-pink-700/50 mb-12">
+                <div class="flex flex-col items-center">
+                    <i class="fas fa-map-marker-alt text-2xl mb-4 text-pink-400"></i>
+                    <span class="font-bold text-xl mb-1">Lokasi</span>
+                    <span class="text-pink-200">Desa Sumbermulya, Haurgeulis, Kab. Indramayu</span>
+                </div>
+            </div>
+
+            <div class="flex justify-center gap-6">
+                <a href="https://www.instagram.com/xkhaiihere" target="_blank" class="w-12 h-12 rounded-full bg-white text-pink-900 flex items-center justify-center hover:scale-110 transition-transform shadow-lg"><i class="fab fa-instagram"></i></a>
+                <a href="tel:081313189639" class="w-12 h-12 rounded-full bg-white text-pink-900 flex items-center justify-center hover:scale-110 transition-transform shadow-lg"><i class="fas fa-phone"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-8 bg-white border-t border-pink-100 text-center">
+        <p class="text-gray-400 text-sm">&copy; 2024 Khirani Tri Hapsari. Semua Hak Dilindungi.</p>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        }
+    </script>
 </body>
 </html>
+
